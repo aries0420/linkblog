@@ -1,4 +1,7 @@
 Linkblog::Application.routes.draw do
+  resources :votes
+
+
   resources :helpfullinks
   root :to => 'helpfullinks#index'
 
