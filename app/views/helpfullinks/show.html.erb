@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @helpfullink.url %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @helpfullink.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @helpfullink.description %>
+</p>
+
+<p>
+  <b>Date submitted:</b>
+  <%= @helpfullink.date_submitted %>
+</p>
+
+
+<%= link_to 'Edit', edit_helpfullink_path(@helpfullink) %> |
+<%= link_to 'Back', helpfullinks_path %>

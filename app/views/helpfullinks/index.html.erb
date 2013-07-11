@@ -1,0 +1,29 @@
+<h1>Listing helpfullinks</h1>
+
+<table>
+  <tr>
+    <th>Url</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Date submitted</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @helpfullinks.each do |helpfullink| %>
+  <tr>
+    <td><%= helpfullink.url %></td>
+    <td><%= helpfullink.title %></td>
+    <td><%= helpfullink.description %></td>
+    <td><%= helpfullink.date_submitted %></td>
+    <td><%= link_to 'Show', helpfullink %></td>
+    <td><%= link_to 'Edit', edit_helpfullink_path(helpfullink) %></td>
+    <td><%= link_to 'Destroy', helpfullink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Helpfullink', new_helpfullink_path %>
