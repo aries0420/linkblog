@@ -1,4 +1,4 @@
-== Welcome to Favorite Questions app
+== Welcome to Helpful Links app
 
 This app is supposed to keep track of the helpful links that we come across during our RoR bootcamp. The three fields that we're interested in are the URL, title of what the link is about, and a description to describe what it's for.
 
