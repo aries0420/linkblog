@@ -1,29 +1,40 @@
-<h1>Helpful Links</h1>
+<%- model_class = Helpfullink -%>
+<div class="page-header">
+  <h1>Helpful Links</h1>
+</div>
 
-<table>
-  <tr>
-    <th>Url</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Date submitted</th>
-    <th></th>
-    <th></th>
-    <th></th>
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <th><%= model_class.human_attribute_name(:url) %></th>
+    <th><%= model_class.human_attribute_name(:title) %></th>
+    <th><%= model_class.human_attribute_name(:description) %></th>
+    <th><%= model_class.human_attribute_name(:date_submitted) %></th>
+    <th><%=t '.actions', :default => t("helpers.actions") %></th>
   </tr>
-
-<% @helpfullinks.each do |helpfullink| %>
-  <tr>
-    <td><%= helpfullink.url %></td>
-    <td><%= helpfullink.title %></td>
-    <td><%= helpfullink.description %></td>
-    <td><%= helpfullink.date_submitted %></td>
-    <td><%= link_to 'Show', helpfullink %></td>
-    <td><%= link_to 'Edit', edit_helpfullink_path(helpfullink) %></td>
-    <td><%= link_to 'Destroy', helpfullink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+</thead>
+<tbody>
+  <% @helpfullinks.each do |helpfullink| %>
+    <tr>
+      <td><%= helpfullink.url %></td>
+      <td><%= helpfullink.title %></td>
+      <td width="200"><%= helpfullink.description %></td>
+      <td><%= helpfullink.date_submitted %></td>
+      <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_helpfullink_path(helpfullink), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      helpfullink_path(helpfullink),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Helpfullink', new_helpfullink_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_helpfullink_path,
+            :class => 'btn btn-primary' %>
